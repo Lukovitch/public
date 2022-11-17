@@ -20,7 +20,7 @@ public class PacWindow extends JFrame {
         JLabel scoreboard = new JLabel("    Score : 0");
         scoreboard.setForeground(new Color(255, 243, 36));
 
-        MapData map1 = getMapFromResource("resources/maps/map1_c.txt");
+        MapData map1 = getMapFromResource("maps/map1_c.txt");
         adjustMap(map1);
 
         /*map1.getTeleports().add(new TeleportTunnel(-1,14,27,14,moveType.LEFT));

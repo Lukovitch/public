@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
  * Class for the quiz parser tests.
@@ -13,5 +14,22 @@ import static org.hamcrest.Matchers.*;
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 final class QuizParserTests {
-    // TODO
+
+    @Test
+    public void NullTextIsInvalid() {
+        var parser = new QuizParser();
+        assertThrows(IllegalArgumentException.class, () -> parser.parse(null));
+    }
+
+    @Test
+    public void EmptyTextIsInvalid() {
+        var parser = new QuizParser();
+        assertThrows(IllegalArgumentException.class, () -> parser.parse(""));
+    }
+
+    @Test
+    public void TextIsInvalid() {
+        var parser = new QuizParser();
+        assertThrows(IllegalArgumentException.class, () -> parser.parse(""));
+    }
 }

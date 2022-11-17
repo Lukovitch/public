@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Class for the announcements fetcher tests.
@@ -13,5 +14,8 @@ import static org.hamcrest.Matchers.*;
  * !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  */
 final class AnnouncementsFetcherTests {
-    // TODO
+    @Test
+    public void test() {
+        //assertThrows(IllegalArgumentException.class, IllegalArgumentException.class);
+    }
 }

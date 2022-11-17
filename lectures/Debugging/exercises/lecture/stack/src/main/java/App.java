@@ -13,21 +13,36 @@ public class App {
 
         /** Creates an empty stack with the given max size; it is forbidden to push more items than that. */
         public IntStack(int maxSize) {
+            if(maxSize < 0) {
+                throw new IllegalArgumentException();
+            }
             top = -1;
             values = new int[maxSize];
         }
 
         /** Returns and pops the top of the stack, or returns null if the stack is empty. */
         public Integer pop() {
-            Integer value = top >= 0 ? values[top] : null;
-            top--;
-            return value;
+            invariant();
+            if(top >= 0) {
+                top--;
+                invariant();
+                return values[top];
+            }
+            return null;
         }
 
         /** Pushes the given value on the stack. */
         public void push(int value) {
+            invariant();
             values[top] = value;
             top++;
+            invariant();
+        }
+
+        private void invariant() {
+            if(!(-1 <= top && top < values.length)) {
+                throw new AssertionError();
+            }
         }
     }
 
@@ -37,7 +52,10 @@ public class App {
 
     // IntStack usage example
     private static void useStack(IntStack stack) {
-        stack.push(1);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        stack.pop();
         stack.pop();
         stack.pop();
     }

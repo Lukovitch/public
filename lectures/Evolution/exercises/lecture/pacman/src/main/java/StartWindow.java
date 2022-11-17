@@ -15,7 +15,7 @@ public class StartWindow extends JFrame {
 
         ImageIcon logo = new ImageIcon();
         try {
-            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("/resources/images/pacman_logo.png")));
+            logo = new ImageIcon(ImageIO.read(this.getClass().getResource("images/pacman_logo.png")));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -23,7 +23,7 @@ public class StartWindow extends JFrame {
         //Register Custom fonts
         try {
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("/resources/fonts/crackman.ttf")));
+            ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, this.getClass().getResourceAsStream("fonts/crackman.ttf")));
         } catch (IOException|FontFormatException e) {
             e.printStackTrace();
         }
