@@ -1,6 +1,9 @@
+import model.AuthResult;
+import model.AuthenticatedUserAdaptater;
 import model.SangriaDatabase;
 import model.CredentialDatabase;
 import view.AuthenticatedUserView;
+import view.ErrorView;
 
 /**
  * Main application entry point
@@ -14,8 +17,13 @@ public final class App {
         CredentialDatabase model = new SangriaDatabase();
         // We want to pass an AuthenticatedUser to the view but the database interface
         // prevents us from doing so...
-        AuthenticatedUserView view = new AuthenticatedUserView(null);
-        System.out.println(view);
+        AuthResult result = model.authenticate(args[0], args[1]);
+        if(result.isSuccessful()){
+            var userAdapter  = new AuthenticatedUserAdaptater(result.getData());
+            System.out.println(new AuthenticatedUserView(userAdapter));
+        } else {
+            System.out.println(new ErrorView(result.getException().getMessage()));
+        }
     }
 
 }
